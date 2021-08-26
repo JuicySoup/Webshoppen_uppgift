@@ -1,0 +1,13 @@
+﻿@page
+@model Webshoppen_uppgift.Pages.ProductCategoryModel
+@{}
+
+<h1>@Model.CategoryName</h1>
+<ul>
+    @foreach (var product in Model.ListOfProducts)
+    {
+        <li>
+            @product.Name, @product.Price Kr
+        </li>
+    }
+</ul>
