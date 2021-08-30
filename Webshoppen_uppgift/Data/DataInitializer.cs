@@ -71,8 +71,8 @@ namespace Webshoppen_uppgift.Data
         {
             SeedCategory(dbContext, "GPU");
             SeedCategory(dbContext, "CPU");
-            SeedCategory(dbContext, "Keyboard");
-            SeedCategory(dbContext, "Mouse");
+            SeedCategory(dbContext, "Laptop");
+            SeedCategory(dbContext, "Datorer");
             dbContext.SaveChanges();
         }
     }

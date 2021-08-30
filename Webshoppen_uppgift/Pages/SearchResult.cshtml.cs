@@ -24,13 +24,16 @@ namespace Webshoppen_uppgift.Pages
             public int Price { get; set; }
             public string Name { get; set; }
 
+            public string Desc { get; set; }
+
         }
 
         public void OnGet(string searchquery)
         {
             SearchWord = searchquery;
-            var products = from p in _dbContext.Products
-                select p;
+
+            var products = from p in _dbContext.Products select p;
+
             if (!String.IsNullOrEmpty(searchquery))
             {
                 products = products.Where(s => s.Name.Contains(searchquery));
@@ -39,7 +42,7 @@ namespace Webshoppen_uppgift.Pages
             Products = new List<ProductItem>();
             foreach (var product in products)
             {
-                Products.Add(new ProductItem { Name = product.Name, Price = product.Price });
+                Products.Add(new ProductItem { Name = product.Name, Price = product.Price, Desc = product.Description });
             }
         }
     }
