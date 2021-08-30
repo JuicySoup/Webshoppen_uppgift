@@ -28,6 +28,7 @@ namespace Webshoppen_uppgift.Pages
         {
             public string Name { get; set; }
             public int Price { get; set; }
+            public string Desc { get; set; }
         }
 
         public void OnGet(int categoryid)
@@ -36,10 +37,10 @@ namespace Webshoppen_uppgift.Pages
                 .First(category => category.Id == categoryid);
             CategoryName = currentcategory.Name.ToUpper();
 
-            ListOfProducts = currentcategory.Products.Select(product => new ProductItem
-            {
+            ListOfProducts = currentcategory.Products.Select(product => new ProductItem{
                 Name = product.Name,
-                Price = product.Price
+                Price = product.Price,
+                Desc = product.Description
             }).ToList();
         }
     }

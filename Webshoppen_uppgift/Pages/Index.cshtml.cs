@@ -25,7 +25,9 @@ namespace Webshoppen_uppgift.Pages
         {
             public int Id { get; set; }
             public string Name { get; set; }
-      
+
+            public string Image { get; set; }
+
         }
 
         public List<CategoryItem> CategoryList { get; set; }

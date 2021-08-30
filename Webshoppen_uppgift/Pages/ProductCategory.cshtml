@@ -2,12 +2,39 @@
 @model Webshoppen_uppgift.Pages.ProductCategoryModel
 @{}
 
-<h1>@Model.CategoryName</h1>
-<ul>
-    @foreach (var product in Model.ListOfProducts)
-    {
-        <li>
-            @product.Name, @product.Price Kr
-        </li>
-    }
-</ul>
+<<h2 class="title-5 m-b-35">@Model.CategoryName</h2>
+
+<div class="main-content">
+    <div class="section__content section__content--p30">
+        <div class="container-fluid">
+            <div class="row m-t-30">
+                <div class="col-md-12">
+                    <!-- DATA TABLE-->
+                    <div class="table-responsive m-b-40">
+                        <table class="table table-borderless table-data3">
+                            <thead>
+                                <tr>
+                                    <th>Produkt</th>
+                                    <th>Beskrivning</th>
+                                    <th>Pris</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.ListOfProducts)
+                                {
+                                    <tr>
+                                        <td>@item.Name</td>
+                                        <td>@item.Desc</td>
+                                        <td>@item.Price Kr</td>
+                                        <td><button type="button" class="btn btn-success btn-sm">Köp</button></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

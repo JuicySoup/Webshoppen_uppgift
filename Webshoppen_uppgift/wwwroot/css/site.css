@@ -73,3 +73,6 @@ body {
     float: left;
     display: inline;
 }
+.a-clickable-div{
+    width: 100%;
+}

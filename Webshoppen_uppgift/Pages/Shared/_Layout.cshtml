@@ -60,20 +60,6 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="index.html">Dashboard 1</a>
-                                </li>
-                                <li>
-                                    <a href="index2.html">Dashboard 2</a>
-                                </li>
-                                <li>
-                                    <a href="index3.html">Dashboard 3</a>
-                                </li>
-                                <li>
-                                    <a href="index4.html">Dashboard 4</a>
-                                </li>
-                            </ul>
                         </li>
                         <li>
                             <a href="chart.html">
@@ -172,28 +158,33 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" asp-page="./Index">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard
                             </a>
                         </li>
                         <li>
-                            <a asp-page="/ProductCategory" asp-route-categoryid="1">
+                            <a asp-page="/ProductCategory" asp-route-categoryid="8">
                                 <i class="fas fa-rocket"></i>GPU
                             </a>
                         </li>
                         <li>
-                            <a asp-page="/ProductCategory" asp-route-categoryid="2">
-                                <i class="fas fa-bolt"></i>CPU
+                            <a asp-page="/ProductCategory" asp-route-categoryid="9">
+                                <i class="fas fa-gamepad"></i>CPU
                             </a>
                         </li>
                         <li>
-                            <a asp-page="/ProductCategory" asp-route-categoryid="3">
+                            <a asp-page="/ProductCategory" asp-route-categoryid="10">
                                 <i class="fas fa-laptop"></i>Laptop
                             </a>
                         </li>
                         <li>
-                            <a asp-page="/ProductCategory" asp-route-categoryid="4">
+                            <a asp-page="/ProductCategory" asp-route-categoryid="11">
                                 <i class="fas fa-desktop"></i>Datorer
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-page="/ProductCategory" asp-route-categoryid="12">
+                                <i class="fas fa-keyboard"></i>Datortillbehör
                             </a>
                         </li>
                         <li class="has-sub">
@@ -212,7 +203,7 @@
                                 </li>
                             </ul>
                         </li>
-                     </ul>
+                    </ul>
                 </nav>
             </div>
         </aside>
@@ -256,17 +247,7 @@
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
                                                     <a href="#">
-                                                        <i class="zmdi zmdi-account"></i>Account
-                                                    </a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting
-                                                    </a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing
+                                                        <i class="zmdi zmdi-settings"></i>Hantera Produkter
                                                     </a>
                                                 </div>
                                             </div>

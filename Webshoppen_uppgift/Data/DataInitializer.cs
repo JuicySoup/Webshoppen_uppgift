@@ -52,17 +52,23 @@ namespace Webshoppen_uppgift.Data
             SeedProduct(dbContext, "MSI GeForce RTX 3060 Ti 8GB GAMING X LHR", "GPU",
                 "GPU-frekvens: 1410 MHz | GDDR6 | Rek. watt (dator): 650 W | Längd: 235 mm", 7499);
 
-            SeedProduct(dbContext, "Logitech G915", "Keyboard",
+            SeedProduct(dbContext, "Logitech G915", "Tillbehör",
                 "Highend wireless keyboard från Logitech", 1250);
 
-            SeedProduct(dbContext, "Logitech G Pro Gaming Keyboard", "Keyboard",
-                "Bakgrundsbelyst | Mekaniska brytare | USB | Vikt: 980 g", 1190);
+            SeedProduct(dbContext, "Logitech G Pro Gaming Keyboard", "Tillbehör",
+                "Bakgrundsbelyst | Mekaniska brytare | USB | Vikt:Index1.cshtml 980 g", 1190);
 
             SeedProduct(dbContext, "AMD Ryzen 5 5600X", "CPU",
                 "Antal kärnor: 6 st | Antal trådar: 12 st | TDP: 65 W", 1250);
 
             SeedProduct(dbContext, "AMD Ryzen 9 5900X", "CPU",
                 "Antal kärnor: 12 st | Antal trådar: 24 st | TDP: 105 W", 1250);
+
+            SeedProduct(dbContext, "Lenovo IdeaPad 5 - 14 | Ryzen 7 | 16GB | 512GB", "Laptop",
+                "Konstruerad för livet", 8990);
+
+            SeedProduct(dbContext, "Taurus Gaming RTX 3060 - 3600", "Datorer",
+    "Gamingdator med RTX 3060", 15999);
 
             dbContext.SaveChanges();
         }
@@ -73,6 +79,7 @@ namespace Webshoppen_uppgift.Data
             SeedCategory(dbContext, "CPU");
             SeedCategory(dbContext, "Laptop");
             SeedCategory(dbContext, "Datorer");
+            SeedCategory(dbContext, "Tillbehör");
             dbContext.SaveChanges();
         }
     }
