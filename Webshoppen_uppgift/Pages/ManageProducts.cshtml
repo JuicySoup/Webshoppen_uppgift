@@ -1,0 +1,76 @@
+﻿@page
+@model Webshoppen_uppgift.Pages.ManageProductsModel
+@{
+}
+
+
+<!-- DATA TABLE-->
+<section class="p-t-20">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="title-5 m-b-35">Hantera produkter</h3>
+                <div class="table-data__tool">
+                    <div class="table-data__tool-left">
+                        <div class="rs-select2--light rs-select2--md">
+                            <select class="js-select2" name="property">
+                                <option selected="selected">All Products</option>
+                                <option value="">GPU</option>
+                                <option value="">CPU</option>
+                                <option value="">Datorer</option>
+                                <option value="">Laptops</option>
+                                <option value="">Tillbehör</option>
+                            </select>
+                            <div class="dropDownSelect2"></div>
+                        </div>
+                        <button class="au-btn-filter">
+                            <i class="zmdi zmdi-filter-list"></i>filters
+                        </button>
+                    </div>
+                    <div class="table-data__tool-right">
+                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <i class="zmdi zmdi-plus"></i>add item
+                        </button>
+                    </div>
+                </div>
+                <div class="table-responsive table-responsive-data2">
+                    <table class="table table-data2">
+                        <thead>
+                            <tr>
+                                <th>produkt</th>
+                                <th>beskrivning</th>
+                                <th>antal</th>
+                                <th>pris</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.ProductsList)
+                            {
+                                <tr class="tr-shadow">
+
+                                    <td>@item.Name</td>
+                                    <td class="desc">@item.Desc</td>
+                                    <td>@item.Quantity</td>
+                                    <td>@item.Price</td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <a class="item" data-toggle="tooltip" data-placement="top" title="Edit" asp-page="Edit" asp-route-id="@item.Id">
+                                                <i class="zmdi zmdi-edit"></i>
+                                            </a>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="spacer"></tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END DATA TABLE-->

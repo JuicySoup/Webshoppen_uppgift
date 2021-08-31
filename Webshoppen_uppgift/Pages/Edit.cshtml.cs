@@ -22,14 +22,11 @@ namespace Webshoppen_uppgift.Pages
         {
             Product = _dbContext.Products.First(product => product.Id == id);
         }
-        public void OnGet()
-        {
-        }
         public IActionResult OnPost()
         {
             _dbContext.Products.Update(Product);
             _dbContext.SaveChanges();
-            return RedirectToPage("./Index");
+            return RedirectToPage("./ManageProducts");
         }
     }
 }

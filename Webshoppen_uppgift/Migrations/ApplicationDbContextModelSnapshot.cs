@@ -38,6 +38,9 @@ namespace Webshoppen_uppgift.Migrations
                     b.Property<int?>("ProductCategoryId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("ProductCategoryId");

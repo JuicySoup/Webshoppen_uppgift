@@ -10,8 +10,8 @@ using Webshoppen_uppgift.Data;
 namespace Webshoppen_uppgift.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210826084702_SearchBar")]
-    partial class SearchBar
+    [Migration("20210831094415_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,9 @@ namespace Webshoppen_uppgift.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("ProductCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Quantity")
                         .HasColumnType("int");
 
                     b.HasKey("Id");

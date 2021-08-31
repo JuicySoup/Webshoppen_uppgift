@@ -26,6 +26,8 @@ namespace Webshoppen_uppgift.Pages
 
             public string Desc { get; set; }
 
+            public int Quantity { get; set; }
+
         }
 
         public void OnGet(string searchquery)
@@ -34,15 +36,15 @@ namespace Webshoppen_uppgift.Pages
 
             var products = from p in _dbContext.Products select p;
 
-            if (!String.IsNullOrEmpty(searchquery))
+            if (!String.IsNullOrEmpty(SearchWord))
             {
-                products = products.Where(s => s.Name.Contains(searchquery));
+                products = products.Where(s => s.Name.Contains(SearchWord));
             }
 
             Products = new List<ProductItem>();
             foreach (var product in products)
             {
-                Products.Add(new ProductItem { Name = product.Name, Price = product.Price, Desc = product.Description });
+                Products.Add(new ProductItem { Name = product.Name, Price = product.Price, Desc = product.Description, Quantity = product.Quantity });
             }
         }
     }

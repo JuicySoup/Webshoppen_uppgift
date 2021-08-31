@@ -29,18 +29,20 @@ namespace Webshoppen_uppgift.Pages
             public string Name { get; set; }
             public int Price { get; set; }
             public string Desc { get; set; }
+            public int Quantity { get; set; }
         }
 
         public void OnGet(int categoryid)
         {
-            var currentcategory = _dbContext.ProductCategories.Include(p => p.Products)
+            var currentcategory = _dbContext.ProductCategories.Include(category => category.Products)
                 .First(category => category.Id == categoryid);
             CategoryName = currentcategory.Name.ToUpper();
 
             ListOfProducts = currentcategory.Products.Select(product => new ProductItem{
                 Name = product.Name,
                 Price = product.Price,
-                Desc = product.Description
+                Desc = product.Description,
+                Quantity = product.Quantity
             }).ToList();
         }
     }
