@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Webshoppen_uppgift.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace Webshoppen_uppgift
 {
@@ -29,6 +30,10 @@ namespace Webshoppen_uppgift
                 options => options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection"))
             );
+
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+
             services.AddRazorPages();
         }
 
@@ -48,6 +53,8 @@ namespace Webshoppen_uppgift
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            app.UseAuthentication();
 
             app.UseRouting();
 
