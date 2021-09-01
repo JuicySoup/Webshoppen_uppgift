@@ -10,8 +10,8 @@ using Webshoppen_uppgift.Data;
 namespace Webshoppen_uppgift.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210831163309_AddingIdentity")]
-    partial class AddingIdentity
+    [Migration("20210901070525_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
