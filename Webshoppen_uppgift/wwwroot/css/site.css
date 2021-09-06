@@ -76,3 +76,8 @@ body {
 .a-clickable-div{
     width: 100%;
 }
+
+.a-withoutlink {
+    color: inherit;
+    text-decoration: none;
+}

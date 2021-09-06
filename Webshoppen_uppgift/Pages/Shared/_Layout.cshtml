@@ -1,6 +1,4 @@
-﻿
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -34,6 +32,10 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    
+    <!-- Default CSS-->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 
 </head>
 
@@ -58,48 +60,20 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                        <li class="active has-sub">
+                            <a class="js-arrow" asp-page="/Index">
+                                <i class="fas fa-archive"></i>Categories
                             </a>
                         </li>
                         <li>
-                            <a href="chart.html">
-                                <i class="fas fa-chart-bar"></i>Charts
+                            <a asp-page="/Login">
+                                <i class="fas fa-key"></i>Login
                             </a>
                         </li>
                         <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Tables
+                            <a asp-page="/Register">
+                                <i class="fas fa-user"></i>Register
                             </a>
-                        </li>
-                        <li>
-                            <a href="form.html">
-                                <i class="far fa-check-square"></i>Forms
-                            </a>
-                        </li>
-                        <li>
-                            <a href="calendar.html">
-                                <i class="fas fa-calendar-alt"></i>Calendar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="map.html">
-                                <i class="fas fa-map-marker-alt"></i>Maps
-                            </a>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Pages
-                            </a>
-                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Register</a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
@@ -117,17 +91,17 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" asp-page="./Index">
+                            <a class="js-arrow" asp-page="/Index">
                                 <i class="fas fa-archive"></i>Categories
                             </a>
                         </li>
                         <li>
-                            <a asp-page="./Login">
+                            <a asp-page="/Identity/Account/Login">
                                 <i class="fas fa-key"></i>Login
                             </a>
                         </li>
                         <li>
-                            <a asp-page="./Register">
+                            <a asp-page="/Identity/Account/Register">
                                 <i class="fas fa-user"></i>Register
                             </a>
                         </li>
@@ -226,6 +200,8 @@
     <!-- Main JS-->
     <script src="js/main.js"></script>
 
+
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 
 </html>

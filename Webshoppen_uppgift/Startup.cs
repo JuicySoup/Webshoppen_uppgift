@@ -31,9 +31,6 @@ namespace Webshoppen_uppgift
                     Configuration.GetConnectionString("DefaultConnection"))
             );
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
             services.AddRazorPages();
         }
 

@@ -8,6 +8,7 @@ using Webshoppen_uppgift.Data;
 
 namespace Webshoppen_uppgift.Pages
 {
+    [BindProperties]
     public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _dbContext;
@@ -15,16 +16,30 @@ namespace Webshoppen_uppgift.Pages
         {
             _dbContext = dbContext;
         }
-        [BindProperty]
-        public Product Product { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Desc { get; set; }
+        public int Price { get; set; }
+        public int Quantity { get; set; }
 
         public void OnGet(int id)
         {
-            Product = _dbContext.Products.First(product => product.Id == id);
+            Id = id;
+            var product = _dbContext.Products.First(p => p.Id == Id);
+            Name = product.Name;
+            Desc = product.Description;
+            Price = product.Price;
+            Quantity = product.Quantity;
+
         }
-        public IActionResult OnPost()
+        public IActionResult OnPost(int id)
         {
-            _dbContext.Products.Update(Product);
+            if (!ModelState.IsValid) return Page();
+            var product = _dbContext.Products.First(p => p.Id == Id);
+            product.Name = Name;
+            product.Description = Desc;
+            product.Price = Price;
+            product.Quantity = Quantity;
             _dbContext.SaveChanges();
             return RedirectToPage("./ManageProducts");
         }

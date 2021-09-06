@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Webshoppen_uppgift.Data;
 
@@ -20,7 +21,8 @@ namespace Webshoppen_uppgift
             {
                 var serviceProvider = scope.ServiceProvider;
                 var dbContext = serviceProvider.GetRequiredService<ApplicationDbContext>();
-                DataInitializer.SeedData(dbContext);
+                var userManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+                DataInitializer.SeedData(dbContext, userManager);
             }
 
             host.Run();

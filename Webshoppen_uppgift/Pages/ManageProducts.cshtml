@@ -11,25 +11,11 @@
             <div class="col-md-12">
                 <h3 class="title-5 m-b-35">Hantera produkter</h3>
                 <div class="table-data__tool">
-                    <div class="table-data__tool-left">
-                        <div class="rs-select2--light rs-select2--md">
-                            <select class="js-select2" name="property">
-                                <option selected="selected">All Products</option>
-                                <option value="">GPU</option>
-                                <option value="">CPU</option>
-                                <option value="">Datorer</option>
-                                <option value="">Laptops</option>
-                                <option value="">Tillbehör</option>
-                            </select>
-                            <div class="dropDownSelect2"></div>
-                        </div>
-                        <button class="au-btn-filter">
-                            <i class="zmdi zmdi-filter-list"></i>filters
-                        </button>
-                    </div>
                     <div class="table-data__tool-right">
-                        <button class="au-btn au-btn-icon au-btn--green au-btn--small">
-                            <i class="zmdi zmdi-plus"></i>add item
+                        <button class="au-btn au-btn-icon au-btn--green au-btn--small" >
+                            <a class="a-withoutlink" asp-page="/CreateItem">
+                                <i class="zmdi zmdi-plus"></i>add item
+                            </a>
                         </button>
                     </div>
                 </div>
