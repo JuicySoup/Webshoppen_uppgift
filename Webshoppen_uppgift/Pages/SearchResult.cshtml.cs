@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using Webshoppen_uppgift.Data;
 
 namespace Webshoppen_uppgift.Pages
@@ -34,18 +31,18 @@ namespace Webshoppen_uppgift.Pages
         {
             SearchWord = searchquery;
 
-            var products = from p in _dbContext.Products select p;
-
-            if (!String.IsNullOrEmpty(SearchWord))
+            if (!string.IsNullOrEmpty(SearchWord))
             {
-                products = products.Where(s => s.Name.Contains(SearchWord));
+                var products = from p in _dbContext.Products select p;
+                products.Where(s => s.Name.Contains(SearchWord));
+                Products = new List<ProductItem>();
+                foreach (var product in products)
+                {
+                    Products.Add(new ProductItem { Name = product.Name, Price = product.Price, Desc = product.Description, Quantity = product.Quantity });
+                }
             }
 
-            Products = new List<ProductItem>();
-            foreach (var product in products)
-            {
-                Products.Add(new ProductItem { Name = product.Name, Price = product.Price, Desc = product.Description, Quantity = product.Quantity });
-            }
+
         }
     }
 }

@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Webshoppen_uppgift.Data;
@@ -9,6 +7,7 @@ using Webshoppen_uppgift.Data;
 namespace Webshoppen_uppgift.Pages
 {
     [BindProperties]
+    [Authorize(Roles = "Admin, Manager")]
     public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _dbContext;
