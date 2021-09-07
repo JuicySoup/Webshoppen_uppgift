@@ -1402,7 +1402,7 @@ section {
 }
 
 .account-item {
-    cursor: pointer;
+    cursor: default;
 }
 
 .account-item .image {
@@ -1536,7 +1536,6 @@ section {
     padding: 15px 25px;
     font-size: 14px;
 }
-
 .account-dropdown__item a:hover {
     background: #4272d7;
     color: #fff;
@@ -1575,6 +1574,28 @@ section {
     font-size: 18px;
     vertical-align: middle;
 }
+.account-dropdown__footer form {
+    display: block;
+    color: #333;
+    padding: 15px 25px;
+    font-size: 14px;
+}
+.account-dropdown__footer form i button {
+    line-height: 1;
+    margin-right: 20px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+
+.account-dropdown__footer form i {
+    line-height: 1;
+    margin-right: 20px;
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+
 
 .menu-sidebar {
     width: 300px;

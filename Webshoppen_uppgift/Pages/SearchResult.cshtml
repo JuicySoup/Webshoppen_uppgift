@@ -9,33 +9,47 @@
         <div class="container-fluid">
             <div class="row m-t-30">
                 <div class="col-md-12">
-                    <h3 class="title-5 m-b-35">Du sökte på @Model.SearchWord</h3>
-                    <!-- DATA TABLE-->
-                    <div class="table-responsive m-b-40">
-                        <table class="table table-borderless table-data3">
-                            <thead>
-                                <tr>
-                                    <th>Produkt</th>
-                                    <th>Beskrivning</th>
-                                    <th>Pris</th>
-                                    <th>Antal</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.Products)
-                                {
+                    @if (!string.IsNullOrEmpty(Model.SearchWord) && Model.Products.Count > 0)
+                    {
+                        <h3 class="title-5 m-b-35">Du sökte på @Model.SearchWord</h3>
+                        <!-- DATA TABLE-->
+                        <!-- DATA TABLE-->
+                        <div class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3">
+                                <thead>
                                     <tr>
-                                        <td>@item.Name</td>
-                                        <td>@item.Desc</td>
-                                        <td>@item.Price Kr</td>
-                                        <td>@item.Quantity st</td>
-                                        <td><button type="button" class="btn btn-success btn-sm">Köp</button></td>
+                                        <th>Produkt</th>
+                                        <th>Beskrivning</th>
+                                        <th>Pris</th>
+                                        <th>Antal</th>
+                                        <th></th>
                                     </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.Products)
+                                    {
+                                        <tr>
+                                            <td>@item.Name</td>
+                                            <td>@item.Desc</td>
+                                            <td>@item.Price Kr</td>
+                                            <td>@item.Quantity st</td>
+                                            <td><button type="button" class="btn btn-success btn-sm">Köp</button></td>
+                                        </tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    }
+                    else if (Model.Products.Count == 0)
+                    {
+                        <h3 class="title-5 m-b-35">Hittade inga produkter med det namnet.</h3>
+                    }
+                    else
+                    {
+                        <h3 class="title-5 m-b-35">Du sökte på ingenting.</h3>
+                    }
                 </div>
             </div>
         </div>

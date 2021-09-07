@@ -10,7 +10,7 @@ namespace Webshoppen_uppgift.Pages
     {
         private readonly ApplicationDbContext _dbContext;
         public string SearchWord { get; set; }
-        public List<ProductItem> Products { get; set; }
+        public List<ProductItem> Products { get; set; } = new List<ProductItem>();
 
         public SearchResultModel(ApplicationDbContext dbContext)
         {
@@ -34,15 +34,12 @@ namespace Webshoppen_uppgift.Pages
             if (!string.IsNullOrEmpty(SearchWord))
             {
                 var products = from p in _dbContext.Products select p;
-                products.Where(s => s.Name.Contains(SearchWord));
-                Products = new List<ProductItem>();
+                products = products.Where(s => s.Name.Contains(SearchWord));
                 foreach (var product in products)
                 {
                     Products.Add(new ProductItem { Name = product.Name, Price = product.Price, Desc = product.Description, Quantity = product.Quantity });
                 }
             }
-
-
         }
     }
 }

@@ -39,9 +39,6 @@
     <!-- Main CSS-->
     <link href="/css/theme.css" rel="stylesheet" media="all">
 
-    <!-- Default CSS-->
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
 
 </head>
 
@@ -71,16 +68,19 @@
                                 <i class="fas fa-archive"></i>Categories
                             </a>
                         </li>
-                        <li>
-                            <a asp-page="Identity/Account/Login">
-                                <i class="fas fa-key"></i>Login
-                            </a>
-                        </li>
-                        <li>
-                            <a asp-page="Identity/Account/Register">
-                                <i class="fas fa-user"></i>Register
-                            </a>
-                        </li>
+                        @if (!SignInManager.IsSignedIn(User))
+                        {
+                            <li>
+                                <a asp-area="Identity" asp-page="/Account/Login">
+                                    <i class="fas fa-key"></i>Login
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-area="Identity" asp-page="/Account/Register">
+                                    <i class="fas fa-user"></i>Register
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </nav>
@@ -101,16 +101,19 @@
                                 <i class="fas fa-archive"></i>Categories
                             </a>
                         </li>
-                        <li>
-                            <a asp-area="Identity" asp-page="/Account/Login">
-                                <i class="fas fa-key"></i>Login
-                            </a>
-                        </li>
-                        <li>
-                            <a asp-area="Identity" asp-page="/Account/Register">
-                                <i class="fas fa-user"></i>Register
-                            </a>
-                        </li>
+                        @if (!SignInManager.IsSignedIn(User))
+                        {
+                            <li>
+                                <a asp-area="Identity" asp-page="/Account/Login">
+                                    <i class="fas fa-key"></i>Login
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-area="Identity" asp-page="/Account/Register">
+                                    <i class="fas fa-user"></i>Register
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </nav>
             </div>
@@ -132,48 +135,47 @@
                         @if (SignInManager.IsSignedIn(User))
                         {
 
-                            <div class="header-button">
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
                                             <img src="images/icon/avatar-06.jpg" alt="Jonte"/>
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">jonte</a>
+                                            <a class="js-acc-btn" href="#">@User.Identity.Name</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-06.jpg" alt="jonte"/>
+                                                        <img src="images/icon/avatar-06.jpg" alt="jonte" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">jonte</a>
+                                                        <a href="#">@User.Identity.Name</a>
                                                     </h5>
                                                 </div>
                                             </div>
-                                            <div class="account-dropdown__body">
-                                                <div class="account-dropdown__item">
-                                                    <a asp-page="ManageProducts">
-                                                        <i class="zmdi zmdi-settings"></i>Hantera Produkter
-                                                    </a>
+                                            @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                                            {
+                                                <div class="account-dropdown__body">
+                                                    <div class="account-dropdown__item">
+                                                        <a asp-page="ManageProducts">
+                                                            <i class="zmdi zmdi-settings"></i>Hantera Produkter
+                                                        </a>
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            }
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new {area = ""})">
-                                                        <i class="zmdi zmdi-power"><button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button></i>
-                                                        
-                                                    </form>
-                                                    
-                                                </a>
+                                                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new {area = ""})">
+                                                    <i class="zmdi zmdi-power">
+                                                        <button type="submit" class="zmdi">Logout</button>
+                                                    </i>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                         }
                         </div>
                     </div>
@@ -187,7 +189,6 @@
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
-
     </div>
 
     <!-- Jquery JS-->

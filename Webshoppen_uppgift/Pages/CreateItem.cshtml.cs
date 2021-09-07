@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -22,6 +23,7 @@ namespace Webshoppen_uppgift.Pages
 
         }
 
+        [Required]
         public List<string> CategoryList { get; set; } = new List<string>
         {
             "GPU",
@@ -32,7 +34,9 @@ namespace Webshoppen_uppgift.Pages
         };
 
         public int Id { get; set; }
+        [Required]
         public string Name { get; set; }
+        [Required]
         public string Desc { get; set; }
         public int Price { get; set; }
         public int Quantity { get; set; }

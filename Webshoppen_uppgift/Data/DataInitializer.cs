@@ -24,7 +24,7 @@ namespace Webshoppen_uppgift.Data
             if (userManager.FindByEmailAsync("contact@jonathanosterberg.com").Result == null)
             {
                 var user = new IdentityUser();
-                user.UserName = "contact@jonathanosterberg.com";
+                user.UserName = "Jonte";
                 user.Email = "contact@jonathanosterberg.com";
                 user.EmailConfirmed = true;
 
@@ -35,7 +35,7 @@ namespace Webshoppen_uppgift.Data
             if (userManager.FindByEmailAsync("jonteo97@gmail.com").Result == null)
             {
                 var user = new IdentityUser();
-                user.UserName = "jonteo97@gmail.com";
+                user.UserName = "Jonathan";
                 user.Email = "jonteo97@gmail.com";
                 user.EmailConfirmed = true;
 
