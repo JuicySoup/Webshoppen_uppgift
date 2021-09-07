@@ -20,7 +20,7 @@
                                     <tr>
                                         <th>Produkt</th>
                                         <th>Beskrivning</th>
-                                        <th>Pris</th>
+                                        <th><a asp-page="./SearchResult" asp-route-searchquery="@Model.SearchWord" asp-route-sortOrder="@Model.SortPrice" >Pris</a></th>
                                         <th>Antal</th>
                                         <th></th>
                                     </tr>
@@ -36,7 +36,6 @@
                                             <td><button type="button" class="btn btn-success btn-sm">Köp</button></td>
                                         </tr>
                                     }
-
                                 </tbody>
                             </table>
                         </div>

@@ -10,6 +10,7 @@ namespace Webshoppen_uppgift.Pages
     {
         private readonly ApplicationDbContext _dbContext;
         public string SearchWord { get; set; }
+        public string SortPrice { get; set; }
         public List<ProductItem> Products { get; set; } = new List<ProductItem>();
 
         public SearchResultModel(ApplicationDbContext dbContext)
@@ -27,19 +28,34 @@ namespace Webshoppen_uppgift.Pages
 
         }
 
-        public void OnGet(string searchquery)
+        public void OnGet(string searchquery, string sortOrder)
         {
             SearchWord = searchquery;
+            SortPrice = sortOrder == "price" ? "price_desc" : "price";
 
+            var products = from p in _dbContext.Products select p;
             if (!string.IsNullOrEmpty(SearchWord))
             {
-                var products = from p in _dbContext.Products select p;
                 products = products.Where(s => s.Name.Contains(SearchWord));
+                switch (sortOrder)
+                {
+                    case "price_desc":
+                        products = products.OrderByDescending(product => product.Name);
+                        break;
+                    case "price":
+                        products = products.OrderBy(product => product.Price);
+                        break;
+                    default:
+                        products = products.OrderBy(product => product.Name);
+                        break;
+                }
                 foreach (var product in products)
                 {
                     Products.Add(new ProductItem { Name = product.Name, Price = product.Price, Desc = product.Description, Quantity = product.Quantity });
                 }
             }
+
+
         }
     }
 }
